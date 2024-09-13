@@ -19,3 +19,5 @@ class Pizza:
                 connection.commit()
         except Exception as e:
             print(f"Erro ao cadastrar a pizza: {e}")
+    
+    
