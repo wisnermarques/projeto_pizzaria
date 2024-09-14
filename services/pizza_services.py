@@ -18,7 +18,8 @@ def listar_pizzas():
                     sql = 'SELECT * FROM pizza;'
                     cursor.execute(sql)
                     result = cursor.fetchall()
-                    print(result)
+                    for pizza in result:
+                        print(pizza)
         except Exception as e:
             print(f"Erro ao listar as pizzas: {e}")
 

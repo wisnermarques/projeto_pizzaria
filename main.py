@@ -1,4 +1,4 @@
-from services.cliente_services import cadastro_cliente
+from services.cliente_services import cadastro_cliente, obter_idcliente
 from services.pizza_services import cadastro_pizza, listar_pizzas
 from services.venda import venda
 
@@ -16,6 +16,8 @@ def main():
       cliente = input('Deseja informa o cliente [S-Sim, N-Não]? ')
       if cliente.upper() == 'S':
          cpf = input('Informe o cpf do cliente: ')
+         cliente = obter_idcliente(cpf)
+         venda(idpizza=idpizza, idcategoria=idcategoria, idcliente=cliente['idcliente'])
       else:
          venda(idpizza=idpizza, idcategoria=idcategoria, idcliente=None)
          

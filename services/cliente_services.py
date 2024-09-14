@@ -22,3 +22,15 @@ def listar_clientes():
                     print(result)
         except Exception as e:
             print(f"Erro ao listar as pizzas: {e}")
+
+def obter_idcliente(cpf: str):
+    connection = conn()
+    try:
+        with connection:
+            with connection.cursor() as cursor:
+                sql = 'SELECT idcliente FROM cliente WHERE cpf = %s;'
+                cursor.execute(sql, cpf)
+                result = cursor.fetchone()
+                return result
+    except Exception as e:
+            print(f"Erro ao localizar o cliente: {e}")
